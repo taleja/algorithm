@@ -1,0 +1,12 @@
+package array;
+
+import org.junit.Test;
+
+public class SubArrayTest {
+	
+	@Test
+	public void test1(){		
+		int[] array = {1,2,3,4,5};
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;expected&apos; in &apos;array.SubArrayTest.test1()&apos; to &apos;actual&apos;&#x0D;&#x0A;- Original project: &apos;basic&apos;&#x0D;&#x0A;- Original element: &apos;array.SubArrayTest.test1().expected&apos;&#x0D;&#x0A;- Renamed element: &apos;expected&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;expected&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/test&lt;array{SubArrayTest.java[SubArrayTest~test1@expected!167!216!174!181!\[I!0!false" name="actual" references="true" stamp="1442605120247" version="1.0"/>
+</session>

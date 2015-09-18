@@ -1,0 +1,10 @@
+package array;
+
+public class ArrayUtil {
+
+	public static int[] subArray(int[] array, int i, int j) {
+		int[] rv = new int[array.length];
+		return null;
+	}
+
+}
