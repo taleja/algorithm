@@ -1,0 +1,27 @@
+package array;
+
+public class ArrayUtil {
+
+	public static int[] subArray(int[] array, int k, int j) {
+		int[] rv = new int[(j - k) + 1];
+		
+//		for(int i = 0; i < array.length; i++){				
+//			if(k == 0){
+//				rv[i] = array[i];				
+//			} else{
+//				if(i <= j){ 
+//					rv[i-k] = array[i];					
+//				}
+//			}		
+//		}
+		
+		for(int i = 0; i < array.length; i++){
+			if(k <= j){
+				rv[i] = array[k];
+				k++;				
+			}
+		}
+		
+		return rv;
+	}
+}

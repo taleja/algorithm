@@ -34,10 +34,17 @@ public class SubArrayTest {
 		Assert.assertArrayEquals(new int[]{890, 21, 34}, actual);
 	}
 
-	//@Test
+	@Test
 	public void test5(){
 		int[] array = {4, 6, 3}; 
 		int[] actual = ArrayUtil.subArray(array, 0, 1);
+		Assert.assertArrayEquals(new int[]{4, 6}, actual);
+	}
+	
+	@Test
+	public void test6(){
+		int[] array = {4, 6, 3}; 
+		int[] actual = ArrayUtil.subArray(array, 0, 2);
 		Assert.assertArrayEquals(new int[]{4, 6, 3}, actual);
 	}
 }

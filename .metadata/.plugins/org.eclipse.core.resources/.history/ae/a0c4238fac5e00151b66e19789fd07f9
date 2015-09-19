@@ -1,0 +1,17 @@
+package array;
+
+public class ArrayUtil {
+
+	public static int[] subArray(int[] array, int k, int j) {
+		int[] rv = new int[(j - k) + 1];
+		//System.out.println("rv lenght: " + rv.length);
+
+		for(int i = 0; i < array.length; i++){
+			if(k <= j){
+				rv[i] = array[k];
+				k++;				
+			}
+		}		
+		return rv;
+	}
+}
