@@ -1,0 +1,36 @@
+package array;
+
+public class ArrayUtil {
+
+	public static int[] subArray(int[] array, int fromIndex, int toIndex) {
+		int[] rv = new int[(toIndex - fromIndex) + 1];
+
+		for(int i = 0; i < rv.length; i++){
+			rv[i] = array[fromIndex + i];			
+		}		
+		return rv;
+	}
+
+	public static int[] copyArray(int[] source, int sourseIndex, int[] destination, int destinationIndex, int count) {
+		
+		int[] rv = new int[destination.length];
+		System.out.println("Length of Rv: " + rv.length);
+		
+		for(int i = 0; i < rv.length; i++){
+			
+			if(i < destinationIndex && i > (count + destinationIndex)){
+				rv[i] = destination[i];
+			} else if(i >= destinationIndex){
+				if(count != 0){
+					rv[i] = source[sourseIndex];
+					destinationIndex++;
+					count--;
+				}
+			} 
+			
+			
+		}
+		System.out.println("Rv: " + rv);
+		return rv;
+	}
+}

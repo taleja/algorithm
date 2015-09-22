@@ -1,0 +1,45 @@
+package array;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class CopyArrayTest {
+	
+	@Test
+	public void test1(){
+		
+		int[] array = new int []{1, 3, 4, 5, 6, 7};
+		int[] dest = new int []{-1, -1, -1, -1, -1, -1, -1};
+		int[] actual = ArrayUtil.copyArray(array, 1, dest, 2, 3);
+		Assert.assertArrayEquals(new int[]{-1, -1, 3, 4, 5, -1, -1}, actual);
+	}
+	
+	@Test
+	public void test2(){
+		
+		int[] array = new int []{1, 3, 4};
+		int[] dest = new int []{-1, -1, -1, -1, -1, -1, -1};
+		int[] actual = ArrayUtil.copyArray(array, 0, dest, 0, 3);
+		Assert.assertArrayEquals(new int[]{1, 3, 4, -1, -1, -1, -1}, actual);
+	}
+	
+	@Test
+	public void test1(){
+		
+		int[] array = new int []{1, 3, 4, 5, 6, 7};
+		int[] dest = new int []{-1, -1, -1, -1, -1, -1, -1};
+		int[] actual = ArrayUtil.copyArray(array, 1, dest, 2, 3);
+		Assert.assertArrayEquals(new int[]{-1, -1, 3, 4, 5, -1, -1}, actual);
+	}
+	
+	@Test
+	public void test1(){
+		
+		int[] array = new int []{1, 3, 4, 5, 6, 7};
+		int[] dest = new int []{-1, -1, -1, -1, -1, -1, -1};
+		int[] actual = ArrayUtil.copyArray(array, 1, dest, 2, 3);
+		Assert.assertArrayEquals(new int[]{-1, -1, 3, 4, 5, -1, -1}, actual);
+	}
+
+
+}
