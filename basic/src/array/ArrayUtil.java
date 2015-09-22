@@ -10,4 +10,21 @@ public class ArrayUtil {
 		}		
 		return rv;
 	}
+
+	public static int[] copyArray(int[] source, int sourseIndex, int[] destination, int destinationIndex, int count) {
+		
+		int[] rv = new int[destination.length];
+		
+		for(int i = 0; i < rv.length; i++){
+		
+			rv[i] = destination[i];
+			
+			if(i >= destinationIndex && count != 0){								
+				rv[i] = source[sourseIndex];				
+				count--;
+				sourseIndex++;
+			 }
+		}
+		return rv;
+	}
 }
