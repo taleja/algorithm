@@ -11,14 +11,11 @@ public class ArrayUtil {
 		return rv;
 	}
 
-	public static int[] copyArray(int[] source, int sourseIndex, int[] destination, int destinationIndex, int count) {
-		
-		for(int i = 0; i < destination.length; i++){			
-			if(i >= destinationIndex && count != 0){								
-				destination[i] = source[sourseIndex];				
-				count--;
-				sourseIndex++;
-			 }
+	public static int[] copyArray(int[] source, int sourceIndex, int[] destination, int destinationIndex, int count) {
+
+		for(int i = sourceIndex; i < sourceIndex + count; i++){										
+			destination[destinationIndex] = source[i];				
+			destinationIndex++;
 		}
 		return destination;
 	}

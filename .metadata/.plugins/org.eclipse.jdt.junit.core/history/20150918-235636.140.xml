@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="SubArrayTest" project="basic" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="array.SubArrayTest" time="0.0">
-    <testcase name="test1" classname="array.SubArrayTest" time="0.0"/>
-    <testcase name="test2" classname="array.SubArrayTest" time="0.0"/>
-    <testcase name="test3" classname="array.SubArrayTest" time="0.0"/>
-    <testcase name="test4" classname="array.SubArrayTest" time="0.0"/>
-  </testsuite>
-</testrun>

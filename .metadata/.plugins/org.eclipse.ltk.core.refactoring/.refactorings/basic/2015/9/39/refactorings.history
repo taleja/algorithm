@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;sourseIndex&apos; in &apos;array.ArrayUtil.copyArray(...)&apos; to &apos;sourceIndex&apos;&#x0D;&#x0A;- Original project: &apos;basic&apos;&#x0D;&#x0A;- Original element: &apos;array.ArrayUtil.copyArray(int[], int, int[], int, int).sourseIndex&apos;&#x0D;&#x0A;- Renamed element: &apos;sourseIndex&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;sourseIndex&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;array{ArrayUtil.java[ArrayUtil~copyArray~\[I~I~\[I~I~I@sourseIndex!320!334!324!334!I!0!true" name="sourceIndex" references="true" stamp="1443175068032" version="1.0"/>
+</session>
