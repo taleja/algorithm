@@ -1,9 +1,0 @@
-package array;
-
-public class SubArrayTest {
-	
-	public void test1(){		
-		
-	}
-
-}
