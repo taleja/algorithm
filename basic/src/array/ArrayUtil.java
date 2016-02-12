@@ -1,5 +1,8 @@
 package array;
 
+import java.util.HashSet;
+import java.util.Map;
+
 public class ArrayUtil {
 
 	public static int[] subArray(int[] array, int fromIndex, int toIndex) {
