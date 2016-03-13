@@ -1,9 +1,14 @@
 package ui;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -12,12 +17,14 @@ import javax.swing.JTextField;
 
 public class FileScanner extends JFrame{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L; 
 	private JSplitPane contentSplitPane;
 	private JSplitPane mainSplitPane;
+	private JPanel cardPanel;
+	private final static String start = "START";
+	private final static String cancel = "CANCEL";
+	private CardLayout cardLayot = new CardLayout();
 
 	public FileScanner (){
 		initUI();  		
@@ -33,6 +40,7 @@ public class FileScanner extends JFrame{
 		mainSplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		getContentPane().add(mainSplitPane, BorderLayout.CENTER);
 		
+				
 		////////////// SearchPanel
 		JPanel searchButtonPanel = new JPanel();
 		searchButtonPanel.setName("searchButtonPanel");
@@ -44,15 +52,55 @@ public class FileScanner extends JFrame{
 		searchTextField.setPreferredSize(new Dimension(400, mainSplitPane.getTopComponent().getHeight())); 
 		searchButtonPanel.add(searchTextField, BorderLayout.LINE_START);
 		
-		JButton buttonSearch = new JButton("Search");
-		buttonSearch.setName("buttonSearch");
-		buttonSearch.setPreferredSize(new Dimension(100, searchTextField.getHeight()));  
-		searchButtonPanel.add(buttonSearch, BorderLayout.CENTER);
+		
+		
+		JButton buttonBrowse = new JButton("Browse");
+		buttonBrowse.setName("buttonSearch");
+		buttonBrowse.setPreferredSize(new Dimension(100, searchTextField.getHeight()));  
+		searchButtonPanel.add(buttonBrowse, BorderLayout.CENTER);
+		buttonBrowse.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String filePath = invokeFileAndDirectoryChooser();	
+				searchTextField.setText(filePath); 
+			}
+		});
+			
+		cardPanel = new JPanel(cardLayot);
+		cardPanel.setPreferredSize(new Dimension(100, searchTextField.getHeight())); 
+		cardPanel.setName("cardPanel");
+		searchButtonPanel.add(cardPanel, BorderLayout.LINE_END);  
+		
+		JButton buttonStart = new JButton("Start");
+		buttonStart.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cardLayot.show(cardPanel, cancel);
+			}
+		});
+		
 		
 		JButton buttonCancel = new JButton("Cancel");
 		buttonCancel.setName("buttonSearch");
 		buttonCancel.setPreferredSize(new Dimension(100, searchTextField.getHeight())); 
-		searchButtonPanel.add(buttonCancel, BorderLayout.LINE_END);
+		buttonCancel.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cardLayot.show(cardPanel, start); 
+				
+			}
+		});
+
+		
+		cardPanel.add(buttonStart, start); 
+		cardPanel.add(buttonCancel, cancel); 
+		
+		searchButtonPanel.add(cardPanel, BorderLayout.LINE_END);
+		cardLayot.show(cardPanel, start);
+		
 		//////////////////////////////////////////////////////////////
 		
 		
@@ -71,6 +119,28 @@ public class FileScanner extends JFrame{
 		
 		contentSplitPane.setRightComponent(scrollPane_right);
 		contentSplitPane.setLeftComponent(scrollPane_left);
+	}
+	
+    public void itemStateChanged(ItemEvent evt) {
+        CardLayout cl = (CardLayout)(cardPanel.getLayout());
+        cl.show(cardPanel, (String)evt.getItem());
+    }
+	
+	private String invokeFileAndDirectoryChooser() {
+		JFileChooser chooser  = new JFileChooser();
+		chooser.setCurrentDirectory(new java.io.File("."));  
+		chooser.setDialogTitle("Path chooser");
+		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); 
+		
+		chooser.setAcceptAllFileFilterUsed(false); 
+		
+		if(chooser.showOpenDialog(chooser.getParent()) == JFileChooser.APPROVE_OPTION){
+		    System.out.println("getCurrentDirectory(): " +  chooser.getCurrentDirectory());
+		} else {
+			System.out.println("No Selection"); 
+		}
+		 
+		return chooser.getCurrentDirectory().toString();
 	}
 
 }
