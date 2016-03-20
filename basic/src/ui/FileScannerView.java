@@ -35,7 +35,7 @@ public class FileScannerView{
 
 	private void initLogic() {
 
-		presenter.getButtonBrowse().addActionListener(new ActionListener() {
+		presenter.onBrowseClick(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -44,7 +44,7 @@ public class FileScannerView{
 			}
 		});
 			
-		presenter.getButtonStart().addActionListener(new ActionListener() {
+		presenter.onStartClick(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -66,7 +66,7 @@ public class FileScannerView{
 			}
 		});
 
-		presenter.getButtonCancel().addActionListener(new ActionListener() {
+		presenter.onCancelClick(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -75,8 +75,4 @@ public class FileScannerView{
 			}
 		});
 	}
-
-	
-
-
 }

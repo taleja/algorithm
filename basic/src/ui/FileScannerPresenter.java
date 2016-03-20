@@ -3,6 +3,7 @@ package ui;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -165,5 +166,17 @@ public class FileScannerPresenter extends JFrame{
 		scrollPane_left.setViewportView(listOfChildren); 
 		cardLayot.show(cardPanel, start);
 		repaint();
-	};
+	}
+	
+	public void onBrowseClick(ActionListener listener){
+		buttonBrowse.addActionListener(listener);
+	}
+	
+	public void onStartClick(ActionListener listener){
+		buttonStart.addActionListener(listener);
+	}
+	
+	public void onCancelClick(ActionListener listener){
+		buttonCancel.addActionListener(listener);
+	}
 }
