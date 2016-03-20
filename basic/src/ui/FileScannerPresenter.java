@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 public class FileScannerPresenter extends JFrame{
 
+	private static final long serialVersionUID = 1L;
 	private JSplitPane contentSplitPane;
 	private JSplitPane mainSplitPane;
 	private JPanel cardPanel;
@@ -100,58 +101,6 @@ public class FileScannerPresenter extends JFrame{
 		contentSplitPane.setLeftComponent(scrollPane_left);
 	
 	}
-
-	public JSplitPane getContentSplitPane() {
-		return contentSplitPane;
-	}
-
-	public JSplitPane getMainSplitPane() {
-		return mainSplitPane;
-	}
-
-	public JPanel getCardPanel() {
-		return cardPanel;
-	}
-
-	public JTextField getSearchTextField() {
-		return searchTextField;
-	}
-
-	public JList getListOfChildren() {
-		return listOfChildren;
-	}
-
-	public JScrollPane getScrollPane_right() {
-		return scrollPane_right;
-	}
-
-	public JScrollPane getScrollPane_left() {
-		return scrollPane_left;
-	}
-
-	public static String getStart() {
-		return start;
-	}
-
-	public static String getCancel() {
-		return cancel;
-	}
-
-	public CardLayout getCardLayot() {
-		return cardLayot;
-	}
-
-	public JButton getButtonStart() {
-		return buttonStart;
-	}
-
-	public JButton getButtonCancel() {
-		return buttonCancel;
-	}
-
-	public JButton getButtonBrowse() {
-		return buttonBrowse;
-	}
 	
 	public void showCancelButton(){
 		cardLayot.show(cardPanel, cancel);
@@ -178,5 +127,13 @@ public class FileScannerPresenter extends JFrame{
 	
 	public void onCancelClick(ActionListener listener){
 		buttonCancel.addActionListener(listener);
+	}
+	
+	public void showFilePath(String path){
+		searchTextField.setText(path);
+	}
+	
+	public String getFilePath(){
+		return searchTextField.getText();
 	}
 }
