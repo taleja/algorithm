@@ -25,9 +25,11 @@ public class FileScannerView{
 
 	private ChildSearch chilSearcher;
 	private FileScannerPresenter presenter;
+	private FileChooserPresenter filePresenter;
 
-	public FileScannerView (FileScannerPresenter presenter){
+	public FileScannerView (FileScannerPresenter presenter, FileChooserPresenter filePresenter){
 		this.presenter = presenter;
+		this.filePresenter = filePresenter;
 		initLogic();  		
 	}
 
@@ -37,7 +39,7 @@ public class FileScannerView{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String filePath = invokeFileAndDirectoryChooser();	
+				String filePath = filePresenter.invokeFileAndDirectoryChooser();	
 				presenter.getSearchTextField().setText(filePath); 
 			}
 		});
@@ -75,21 +77,6 @@ public class FileScannerView{
 	}
 
 	
-	private String invokeFileAndDirectoryChooser() {
-		JFileChooser chooser  = new JFileChooser();
-		chooser.setCurrentDirectory(new java.io.File("."));  
-		chooser.setDialogTitle("Path chooser");
-		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); 
-		
-		chooser.setAcceptAllFileFilterUsed(false); 
-		
-		if(chooser.showOpenDialog(chooser.getParent()) == JFileChooser.APPROVE_OPTION){
-		    System.out.println("getSelectedFile:  " +  chooser.getSelectedFile());
-		} else {
-			System.out.println("No Selection"); 
-		}
-		 
-		return chooser.getSelectedFile().getAbsolutePath();
-	}
+
 
 }
