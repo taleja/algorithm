@@ -2,18 +2,21 @@ package ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
 public class FileScannerView{
 	
-	private ChildSearch childSearcher;
 	private FileScannerPresenter presenter;
 	private FileChooserPresenter filePresenter;
+	private FileSearchService fileSearchService;
 
-	public FileScannerView (FileScannerPresenter presenter, FileChooserPresenter filePresenter){
+	public FileScannerView (FileScannerPresenter presenter, FileChooserPresenter filePresenter, FileSearchService 
+			fileSearchService){
 		this.presenter = presenter;
 		this.filePresenter = filePresenter;
+		this.fileSearchService = fileSearchService;
 		initLogic();  		
 	}
 
@@ -33,20 +36,14 @@ public class FileScannerView{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				presenter.showCancelButton();
-				childSearcher = new ChildSearch(presenter.getFilePath());
-				childSearcher.addObserver(new Observer() {
+				fileSearchService.searchFiles(presenter.getFilePath(), new Observer() {
 					
 					@Override
 					public void update(Observable o, Object arg) {
-						Object[] array = childSearcher.getChildren().toArray();
+						Object[] array = (( List<String>) arg).toArray();
 						presenter.showSearchResult(array);
 					}
 				});
-				System.out.println(Thread.currentThread().getName() + " " + Thread.currentThread().getId());
-				///parallel thread
-				Thread myThread = new Thread(childSearcher);
-				myThread.setName("myThreadName");
-				myThread.start();
 			}
 		});
 
@@ -55,7 +52,7 @@ public class FileScannerView{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				presenter.showStartButton();
-				childSearcher.stopSearch();
+				fileSearchService.stopSearch();
 			}
 		});
 	}

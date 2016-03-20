@@ -34,7 +34,7 @@ public class ChildSearch extends Observable implements Runnable {
 			listOfFiles.add(f.getName());
 		}
 		setChanged();
-		notifyObservers();
+		notifyObservers(listOfFiles);
 		
 	}
 
